@@ -17,7 +17,6 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -51,16 +50,18 @@ function counter2() {
   return count++;
 }
 
+console.log(counter2())
+console.log(counter2())
+console.log(counter1())
 
 /* Task 2: inning() 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(max){
+  return Math.round(Math.random() * Math.floor(max));
 }
+console.log(inning(2))
 
 /* Task 3: finalScore()
 
@@ -75,12 +76,16 @@ finalScore(inning, 9) might return:
 }
 
 */ 
+function finalScore(callback, number){
+  return{
+    Home : callback(2 * number),
+    Away : callback(2 * number),
+  }
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
 
 }
+console.log(finalScore(inning,9))
+
 
 /* Task 4: 
 
