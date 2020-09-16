@@ -17,7 +17,9 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-
+function(stringList,callback){
+  
+}
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -27,9 +29,9 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ * counter1 has a nested function.
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ * counter1 uses closure, it grabs from the function above it.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
 */
@@ -38,7 +40,7 @@ function processFirstItem(stringList, callback) {
 function counterMaker() {
   let count = 0;
   return function counter() {
-    count++;
+    return count++;
   }
 }
 
@@ -51,16 +53,18 @@ function counter2() {
   return count++;
 }
 
+console.log(counter2())
+console.log(counter2())
+console.log(counter1())
 
 /* Task 2: inning() 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(max){
+  return Math.round(Math.random() * 3);
 }
+console.log(inning(2))
 
 /* Task 3: finalScore()
 
@@ -75,12 +79,31 @@ finalScore(inning, 9) might return:
 }
 
 */ 
-
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inning, numberOfInning){
+  let team1=0
+  let team2=0
+  for  (let i=0; i<numberOfInning; i++) {
+  team1 = team1 + inning();
+  team2 = team2 + inning();
 }
+  let final ={home:team1,
+             away:team2}
+  return final
+  
+}
+console.log(finalScore(inning,9))
+
+
+// function finalScore(callback, number){
+//   return{
+//     Home : callback(2 * number),
+//     Away : callback(2 * number),
+//   }
+
+
+// }
+// console.log(finalScore(inning,9))
+
 
 /* Task 4: 
 
